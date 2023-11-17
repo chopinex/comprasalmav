@@ -9,6 +9,7 @@
 	<form action="/registrar" method="post">
 		@csrf
 		<input type="email" name="email" />
+		<input type="text" name="nombre" />
 		<input type="password" name="password" />
 		<input type="password" name="password_confirmation" />
 		<input type="submit" value="Registrarse">

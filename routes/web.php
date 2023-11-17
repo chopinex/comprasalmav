@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::get('/ingresar',[LoginController::class,'show']);
 Route::post('/ingresar',[LoginController::class,'login']);
 
 Route::get('/inicio',[HomeController::class,'show']);
+
+Route::get('/logout',[LogoutController::class,'logout']);

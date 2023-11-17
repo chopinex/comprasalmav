@@ -7,5 +7,13 @@
 </head>
 <body>
 	<h1>Hola</h1>
+
+	@auth
+		<p>Bienvenido {{auth()->user()->name}}, estás autenticado</p>
+		<p><a href="/logout">Cerrar Sesión</a></p>
+	@endauth
+	@guest
+		<p>Para ver el contenido <a href="/ingresar">Inicia sesión</a></p>
+	@endguest
 </body>
 </html>

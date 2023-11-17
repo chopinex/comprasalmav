@@ -10,6 +10,9 @@ use App\Models\User;
 class LoginController extends Controller
 {
      public function show(){
+        if(Auth::check()){
+            return redirect('/inicio');
+        }
         return view('auth.login');
     }
 
