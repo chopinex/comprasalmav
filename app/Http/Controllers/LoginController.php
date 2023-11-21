@@ -20,7 +20,7 @@ class LoginController extends Controller
         $credentials = $request->getCredentials();
 
         if(!Auth::validate($credentials)){
-            return redirect('/ingresar')->withErrors('auth.failed');
+            return redirect('/ingresar')->withErrors('Correo o Contraseña incorrectos');
         }
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);

@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\Auth\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::post('/ingresar',[LoginController::class,'login']);
 Route::get('/inicio',[HomeController::class,'show']);
 
 Route::get('/logout',[LogoutController::class,'logout']);
+
+Route::get('/auth/{provider}/redirect', [ProviderController::class,'redirect']);
+ 
+Route::get('/auth/{provider}/callback', [ProviderController::class,'callback']);
