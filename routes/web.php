@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Auth\ProviderController;
+use App\Http\Controllers\Dashboard\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,5 @@ Route::get('/logout',[LogoutController::class,'logout']);
 Route::get('/auth/{provider}/redirect', [ProviderController::class,'redirect']);
  
 Route::get('/auth/{provider}/callback', [ProviderController::class,'callback']);
+
+Route::resource('projects',ProjectController::class);
