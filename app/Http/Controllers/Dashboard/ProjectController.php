@@ -14,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects= Project::all();
+        $projects= Project::where('user_id',auth()->user()->id)->get();
 
         return view('dashboard.projects.index', compact('projects'));
     }
@@ -33,7 +33,8 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         app(CreateFolderController::class)->createFolder($request);
-        return $request->all();
+        $projects= Project::where('user_id',auth()->user()->id)->get();
+        return view('dashboard.projects.index',compact('projects'));
     }
 
     /**

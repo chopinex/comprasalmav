@@ -10,6 +10,8 @@
 
 	@auth
 		<p>Bienvenido {{auth()->user()->name}}, estás autenticado</p>
+		<p><a href="/projects">Ver carpetas de proyectos</a></p>
+		<p><a href="/compras">Ver compras</a></p>
 		<p><a href="/logout">Cerrar Sesión</a></p>
 	@endauth
 	@guest

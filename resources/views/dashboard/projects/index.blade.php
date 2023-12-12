@@ -31,5 +31,6 @@
 	</tbody>
 </table>
 <a href="{{route('projects.create')}}">Crear</a>
+<p><a href="/inicio">Volver</a></p>
 </body>
 </html>

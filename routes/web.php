@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\Dashboard\ProjectController;
+use App\Http\Controllers\Dashboard\CompraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,7 @@ Route::get('/auth/{provider}/redirect', [ProviderController::class,'redirect']);
 Route::get('/auth/{provider}/callback', [ProviderController::class,'callback']);
 
 Route::resource('projects',ProjectController::class);
+
+Route::resource('compras',CompraController::class);
+
+Route::get('/obtener-opciones/{selectedValue}', [CompraController::class,'getOptions']);
