@@ -62,17 +62,37 @@ class CompraController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Compra $compra)
     {
-        //
+        $areas = Area::select('nombre_area')->distinct()->get();
+        return view('dashboard.compras.edit',compact('compra','areas'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Compra $compra)
     {
-        //
+        $request->validate([
+            'numero_documento'=>'bail|required',
+            'fecha_documento'=>'required',
+            'proveedor'=>'required|string|max:255',
+            'servicio'=>'required|string|max:255',
+            'proyecto'=>'required|string|max:255',
+            'tipo_cambio' => 'numeric',
+            'total'=>'required|numeric',
+            'pagado'=>'required|numeric',
+            'fecha_pago'=>'required',
+            'detalle_pago'=>'required|string'
+        ]);
+        $compra->update($request->all());
+        session()->flash('swal',[
+            'icon'=>'success',
+            'title'=>'asombroso!',
+            'text'=>'La compra ha sido actualizada!',
+        ]);
+        $compras= Compra::all();
+        return view('dashboard.compras.index',compact('compras'));
     }
 
     /**

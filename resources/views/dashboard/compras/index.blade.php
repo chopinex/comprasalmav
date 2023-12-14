@@ -24,6 +24,7 @@
 			<th>Fecha de pago</th>
 			<th>Detalle de pago</th>
 			<th>Comentario</th>
+			<th> </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -44,10 +45,12 @@
 				<td>{{$buy->fecha_pago}}</td>
 				<td>{{$buy->detalle_pago}}</td>
 				<td>{{$buy->comentario}}</td>
+				<td><a href="{{ route('compras.edit',$buy) }}">Editar</a></td>
 			</tr>
 		@endforeach
 	</tbody>
 </table>
-<a href="{{route('compras.create')}}">Crear</a>
+<a href="{{route('compras.create')}}">Crear</a><br>
+<a href="/inicio">Ir a inicio</a>
 </body>
 </html>
